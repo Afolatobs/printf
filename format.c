@@ -21,25 +21,25 @@ break;
 if (*format == 'c')
 {
 char c = va_arg(args, int);
-putchar(c);
+_putchar(c);
 char_count++;
 }
 else if (*format == 's')
 {
 char *str = va_arg(args, char *);
 for (len = 0; str[len]; len++)
-putchar(str[len]);
+_putchar(str[len]);
 char_count += len;
 }
 else if (*format == '%')
 {
-putchar('%');
+_putchar('%');
 char_count++;
 }
 }
 else
 {
-putchar(*format);
+_putchar(*format);
 char_count++;
 }
 format++;
