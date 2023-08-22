@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * _printf - the function
- * @format: the format string
- * Return: an integer
- */
+*_printf - the function
+*@format: the format string
+*Return: an interger
+*/
 int _printf(const char *format, ...)
 {
 int len, char_count = 0;
@@ -21,25 +21,25 @@ break;
 if (*format == 'c')
 {
 char c = va_arg(args, int);
-putchar(c);
+write(1, &c, 1);
 char_count++;
 }
 else if (*format == 's')
 {
 char *str = va_arg(args, char *);
 for (len = 0; str[len]; len++)
-putchar(str[len]);
+write(1, &str[len], 1);
 char_count += len;
 }
 else if (*format == '%')
 {
-putchar('%');
+write(1, format, 1);
 char_count++;
 }
 }
 else
 {
-putchar(*format);
+write(1, format, 1);
 char_count++;
 }
 format++;
